@@ -2,7 +2,7 @@
 
 ## About the app : 
 
-**It's a backend side in order to get data from api about the countries and store them in database using mongodb .**  
+**It's a backend side in order to get data from api about the countries and store them in database using Nodejs && express && mongodb .**  
 
 ## How to run the app : 
 
