@@ -11,12 +11,12 @@ const Countries = require("./app/models/countries.model.js");
 const superagent = require("superagent");
 
 // parse requests of content-type - application/json
-app.use(express.json()); /* bodyParser.json() is deprecated */
+app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(
   express.urlencoded({ extended: true })
-); /* bodyParser.urlencoded() is deprecated */
+); 
 
 //Database connection
 const dbURL = process.env.DB_CONNECTION;
@@ -39,6 +39,8 @@ app.get("/", (req, res) => {
 
 // Path to store the response from api
 const path = "./app/jsonFiles/countries.json";
+
+// allCountries Route to get response from api
 app.get("/allCountries", (req, res) => {
   superagent.get("https://restcountries.com/v3.1/all").then((response) => {
     let allCountries = response.body;
@@ -65,7 +67,7 @@ app.get("/download", function (req, res) {
   // example if i got the isAdmin property in headers to check if the user is admin or not (from frontEnd side)
 
   // try {
-  //   if(req.headers.isAdmin == 'X-ADMIN=1') {
+  //   if(req.headers.X_ADMIN == 1) {
   //     const file = `${path}`;
   //     res.download(file);
   //   }
